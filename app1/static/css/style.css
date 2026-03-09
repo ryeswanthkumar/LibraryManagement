@@ -1,0 +1,32 @@
+body{
+font-family: Arial;
+margin:40px;
+}
+
+nav a{
+margin-right:15px;
+text-decoration:none;
+color:#333;
+}
+
+table{
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table,th,td{
+border:1px solid #ccc;
+padding:8px;
+}
+
+button{
+padding:6px 10px;
+background:#2c7be5;
+color:white;
+border:none;
+}
+
+input,select{
+padding:6px;
+margin:5px;
+}

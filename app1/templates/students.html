@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Student</h2>
+
+<form method="post">
+{% csrf_token %}
+
+<input type="text" name="name" placeholder="Name">
+
+<input type="email" name="email" placeholder="Email">
+
+<button>Add</button>
+
+</form>
+
+<h3>Students</h3>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+</tr>
+
+{% for s in students %}
+
+<tr>
+<td>{{s.name}}</td>
+<td>{{s.email}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

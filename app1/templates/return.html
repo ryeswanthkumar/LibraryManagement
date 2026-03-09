@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Return Book</h2>
+
+<form method="post">
+
+{% csrf_token %}
+
+<select name="borrow">
+
+{% for r in records %}
+
+<option value="{{r.id}}">
+{{r.student.name}} - {{r.book.title}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<button>Return</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Borrow Report</h2>
+
+<form method="post">
+{% csrf_token %}
+
+<input type="date" name="from">
+<input type="date" name="to">
+
+<button>Filter</button>
+
+</form>
+
+<table>
+
+<tr>
+<th>Student</th>
+<th>Book</th>
+<th>Borrow Date</th>
+<th>Due Date</th>
+<th>Returned</th>
+<th>Return Date</th>
+</tr>
+
+{% for r in data %}
+
+<tr>
+<td>{{ r.student.name }}</td>
+<td>{{ r.book.title }}</td>
+<td>{{ r.borrow_date }}</td>
+<td>{{ r.due_date }}</td>
+<td>
+{% if r.returned %}
+Yes
+{% else %}
+No
+{% endif %}
+</td>
+<td>{{ r.return_date }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

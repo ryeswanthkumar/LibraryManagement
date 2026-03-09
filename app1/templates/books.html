@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Book</h2>
+
+<form method="post">
+{% csrf_token %}
+
+<input type="text" name="title" placeholder="Title">
+<input type="text" name="author" placeholder="Author">
+
+<button>Add</button>
+
+</form>
+
+<table>
+
+<tr>
+<th>Title</th>
+<th>Author</th>
+<th>Status</th>
+</tr>
+
+{% for b in books %}
+
+<tr>
+<td>{{b.title}}</td>
+<td>{{b.author}}</td>
+<td>
+{% if b.available %}
+Available
+{% else %}
+Borrowed
+{% endif %}
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

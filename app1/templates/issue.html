@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Issue Book</h2>
+
+<p style="color:red;">{{message}}</p>
+
+<form method="post">
+{% csrf_token %}
+
+<select name="student">
+
+{% for s in students %}
+
+<option value="{{s.id}}">
+{{s.name}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<select name="book">
+
+{% for b in books %}
+
+<option value="{{b.id}}">
+{{b.title}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<button>Issue</button>
+
+</form>
+
+{% endblock %}
